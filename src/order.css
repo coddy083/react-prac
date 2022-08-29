@@ -1,0 +1,34 @@
+.order {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+    align-items: center;
+}
+
+.order input {
+    width: 50vmin;
+    height: 7vmin;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+}
+
+.order button {
+    width: 50vmin;
+    height: 10vmin;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #61dafb;
+    color: #fff;
+    font-size: 1vmin;
+    cursor: pointer;
+}
+
+.order h1 {
+    font-size: 10vmin;
+    margin-bottom: 10px;
+}

@@ -1,3 +1,4 @@
+import './order.css';
 import React, { useState } from "react";
 import axios from "axios";
 import DataList from './dataget';
@@ -7,7 +8,7 @@ const token = localStorage.getItem('token_access');
 
 function Orders() {
     const [OrderData, setOrderData] = useState([]);
-    const [service, setService] = useState([]);
+    const [service, setService] = useState('');
     const [link, setLink] = useState('');
     const [quantity, setQuantity] = useState('');
 
@@ -31,8 +32,6 @@ function Orders() {
             })
     }
 
-
-
     const GetData = () => {
         axios.get('http://127.0.0.1:8000/order/', {
             headers: {
@@ -41,6 +40,7 @@ function Orders() {
         })
             .then(res => {
                 setOrderData(res.data);
+                setOrderlist(true)
             }
             )
             .catch(err => {
@@ -49,26 +49,36 @@ function Orders() {
             )
     }
 
+
+    const [Orderlist, setOrderlist] = useState(false);
+
     const LogOut = () => {
         localStorage.removeItem('token_access');
         localStorage.removeItem('token_refresh');
         window.location.href = '/';
     }
 
-    return (
-        <div className="App">
-            <header className="App-header">
-                <input value={service} type="text" onChange={(e) => { setService(e.target.value) }} placeholder="service" />
-                <input value={link} type="text" onChange={(e) => { setLink(e.target.value) }} placeholder="link" />
-                <input value={quantity} type="text" onChange={(e) => { setQuantity(e.target.value) }} placeholder="quantity" />
+    if (Orderlist) {
+        return (
+            <div className="order">
+                <h1>주문 내역</h1>
+                <button onClick={() => { setOrderlist(false) }}>돌아가기</button>
+                <DataList OrderData={OrderData} />
+            </div>
+        )
+    } else {
+        return (
+            <div className="order">
+                <h1>주문하기</h1>
+                <input value={service} type="text" onChange={(e) => { setService(e.target.value) }} placeholder="서비스번호" />
+                <input value={link} type="text" onChange={(e) => { setLink(e.target.value) }} placeholder="링크" />
+                <input value={quantity} type="text" onChange={(e) => { setQuantity(e.target.value) }} placeholder="수량" />
                 <button onClick={Order}>주문하기</button>
                 <button onClick={GetData}>조회</button>
                 <button onClick={LogOut}>로그아웃</button>
-
-                <DataList OrderData={OrderData} />
-            </header>
-        </div>
-    )
+            </div>
+        )
+    }
 }
 
 export default Orders;
