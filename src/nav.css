@@ -1,0 +1,31 @@
+nav{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px 0px;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #e5e5e5;
+    margin: 0;
+}
+nav a{
+    text-decoration: none;
+    color: #333;
+}
+nav a:hover{
+    color: #61dafb;
+}
+nav ul{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+nav li{
+    margin: 0;
+    list-style: none;
+    cursor: pointer;
+}

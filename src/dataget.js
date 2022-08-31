@@ -2,6 +2,7 @@ import './dataget.css';
 import NavMenu from './nav';
 
 function DataList(props) {
+    console.log(props.OrderData);
     const CompleteStyle = {
         backgroundColor: 'yellow',
     }
@@ -18,7 +19,9 @@ function DataList(props) {
                         <th>주문번호</th>
                         <th>링크</th>
                         <th>시작수량</th>
+                        <th>주문수량</th>
                         <th>상태</th>
+                        <th>시작일</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -27,18 +30,22 @@ function DataList(props) {
                             return (
                                 <tr key={index}>
                                     <td>{data.id}</td>
-                                    <td><a href={data.link}>{data.link}</a></td>
+                                    <td><a href={data.link}>링크</a></td>
                                     <td>{data.start_count}</td>
+                                    <td>{data.quantity}</td>
                                     <td style={CompleteStyle}>{data.status}</td>
+                                    <td>{data.create_date}</td>
                                 </tr>
                             )
                         } else {
                             return (
                                 <tr key={index}>
                                     <td>{data.id}</td>
-                                    <td><a href={data.link}>{data.link}</a></td>
+                                    <td><a href={data.link}>링크</a></td>
                                     <td>{data.start_count}</td>
+                                    <td>{data.quantity}</td>
                                     <td style={FailStyle}>{data.status}</td>
+                                    <td>{data.create_date}</td>
                                 </tr>
                             )
                         }
