@@ -1,5 +1,5 @@
+import React from 'react';
 import './dataget.css';
-import NavMenu from './nav';
 
 function DataList(props) {
     console.log(props.OrderData);
@@ -11,7 +11,6 @@ function DataList(props) {
         color: '#ffffff'
     }
     return (
-        <NavMenu />,
         <div>
             <table>
                 <thead>

@@ -1,7 +1,6 @@
 import React from 'react';
 import Login from './login';
 import Orders from './order';
-import NavMenu from './nav';
 const token = localStorage.getItem('token_access');
 
 function App() {
@@ -17,8 +16,7 @@ function App() {
   } else {
     return (
       <div>
-      <NavMenu />
-      <Orders />
+        <Orders />
       </div>
     )
   }

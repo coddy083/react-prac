@@ -1,32 +1,26 @@
-import './nav.css';
-import { useState } from 'react';
+// import React from 'react';
+// import './nav.css';
 
-function NavMenu() {
-    const [MenuType, setMenuType] = useState('ORDER');
+// function NavMenu() {    
+//     const OrderList = () => {
+//         console.log('OrderList');
+//     }
 
-    const NewOrder = () => {
-        console.log('NewOrder');
-    }
+//     const Logout = () => {
+//         localStorage.removeItem('token_access');
+//         localStorage.removeItem('token_refresh');
+//         window.location.reload();
+//     }
 
-    const OrderList = () => {
-        setMenuType('NEWORDER');
-    }
+//     return (
+//         <nav className='nav'>
+//             <ul>
+//                 <li>주문</li>
+//                 <li onClick={OrderList}>주문내역</li>
+//                 <li onClick={Logout}>로그아웃</li>
+//             </ul>
+//         </nav>
+//     )
+// }
 
-    const Logout = () => {
-        localStorage.removeItem('token_access');
-        localStorage.removeItem('token_refresh');
-        window.location.reload();
-    }
-
-    return (
-        <nav className='nav'>
-            <ul>
-                <li onClick={NewOrder}>주문</li>
-                <li onClick={OrderList}>{MenuType}</li>
-                <li onClick={Logout}>로그아웃</li>
-            </ul>
-        </nav>
-    )
-}
-
-export default NavMenu;
+// export default NavMenu;
